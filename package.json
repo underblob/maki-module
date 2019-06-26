@@ -1,0 +1,29 @@
+{
+  "name": "maki-module",
+  "version": "0.0.2",
+  "description": "Make modules from templates",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/underblob/maki-module.git"
+  },
+  "keywords": [
+    "make",
+    "module",
+    "template",
+    "cli",
+    "shell",
+    "pattern",
+    "create",
+    "generate"
+  ],
+  "author": "Brad Barwick <underblob@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/underblob/maki-module/issues"
+  },
+  "homepage": "https://github.com/underblob/maki-module#readme"
+}

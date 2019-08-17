@@ -1,0 +1,4 @@
+#__BASENAME__, #__BASENAME__ * {
+  background-color: rgba(153, 255, 153, 0.10);
+  outline: solid 1px rgba(153, 255, 153, 0.50);
+}

@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import './__BASENAME__.scss';
+
 class __BASENAME__ extends React.Component {
   render() {
     return (

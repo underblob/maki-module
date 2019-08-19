@@ -5,9 +5,9 @@ err_message() {
 }
 
 err_warn() {
-  [ $1 -ne 0 ] && err_message $1
+  [ "${1}" -ne 0 ] && err_message "${1}"
 }
 
 err_abort() {
-  [ $1 -ne 0 ] && err_message $1 && exit 0
+  [ "${1}" -ne 0 ] && err_message "${1}" && exit 0
 }

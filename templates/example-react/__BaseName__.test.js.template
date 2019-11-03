@@ -1,11 +1,11 @@
 import { shallow } from 'enzyme';
-import __BASENAME__ from './__BASENAME__';
+import __BaseName__ from './__BaseName__';
 
-describe('__BASENAME__', () => {
-  describe('<__BASENAME__/>', () => {
+describe('__BaseName__', () => {
+  describe('<__BaseName__/>', () => {
     describe('render()', () => {
       it('matches snapshot', () => {
-        const instance = shallow(<__BASENAME__/>).instance();
+        const instance = shallow(<__BaseName__/>).instance();
         const result = instance.render();
         expect(result).toMatchSnapshot();
       });

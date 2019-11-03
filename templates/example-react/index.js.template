@@ -1,4 +1,4 @@
-import index from './__BASENAME__';
+import index from './__BaseName__';
 
-export * from './__BASENAME__';
+export * from './__BaseName__';
 export default index;

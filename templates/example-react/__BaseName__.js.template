@@ -1,0 +1,19 @@
+import PropTypes from 'prop-types';
+import React from 'react';
+
+import './__base-name__.scss';
+
+class __BaseName__ extends React.Component {
+  render() {
+    return (
+      <div id="__base-name__">
+        <pre>Component: __BaseName__</pre>
+      </div>
+    );
+  }
+}
+
+__BaseName__.propTypes = {};
+__BaseName__.defaultProps = {};
+
+export default __BaseName__;

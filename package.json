@@ -1,6 +1,6 @@
 {
   "name": "maki-module",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Make modules from templates",
   "main": "index.js",
   "bin": "cli.js",
@@ -23,5 +23,11 @@
   "bugs": {
     "url": "https://github.com/underblob/maki-module/issues"
   },
-  "homepage": "https://github.com/underblob/maki-module#readme"
+  "homepage": "https://github.com/underblob/maki-module#readme",
+  "dependencies": {
+    "lodash.camelcase": "^4.3.0",
+    "lodash.kebabcase": "^4.1.1",
+    "lodash.snakecase": "^4.1.1",
+    "lodash.upperfirst": "^4.3.1"
+  }
 }

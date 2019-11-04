@@ -15,6 +15,3 @@ color "${BLUE}  make [template] [path]"
 color "${BLUE}    Create a new template at path."
 color "${BLUE}    E.g.: npx maki-module make component ./components/Button"
 color
-color "${BLUE}  undo"
-color "${BLUE}    Revert the last make command."
-color

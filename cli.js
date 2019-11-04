@@ -15,10 +15,6 @@ switch(command) {
     execSync(`./cli/make.sh ${cwd} ${args.join(' ')}`, { stdio: 'inherit' });
     break;
   }
-  case 'undo': {
-    execSync(`./cli/undo.sh ${cwd} ${args.join(' ')}`, { stdio: 'inherit' });
-    break;
-  }
   default: {
     execSync('./cli/help.sh', { stdio: 'inherit' });
   }

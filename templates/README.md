@@ -1,6 +1,6 @@
 # Maki Module Templates
 
-> Module templates to harden project boilerplate.
+> Modular templates to harden project boilerplate.
 
 # Templates
 

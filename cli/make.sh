@@ -41,35 +41,28 @@ function convert_contents {
   echo "${CONTENTS//$TOKEN/$REPLACEMENT}"
 }
 
-function make_file {
-  CASE=$1
-  TOKEN="__$(convert $CASE BaseName)__"
-  REPLACEMENT=$(convert $CASE $BASENAME)
+for TPL_FILE in $TPL_DIR/* ; do
+  MOD_FILE=$(basename $TPL_FILE)
 
-  for TPL_FILE in $TPL_DIR/* ; do
-    MOD_FILE=$(basename $TPL_FILE)
-    if [[ $MOD_FILE = "${TOKEN}"* ]]; then
-      MOD_FILE="${MOD_DIR}/${MOD_FILE//$TOKEN/$REPLACEMENT}"
-      MOD_FILE="${MOD_FILE//.template/}"
-      TPL_CONTENTS=$(<$TPL_FILE)
-      color "${BLUE}Make file ${YELLOW}${MOD_FILE}"
+  MOD_FILE=$(convert_contents "${MOD_FILE}" camel)
+  MOD_FILE=$(convert_contents "${MOD_FILE}" constant)
+  MOD_FILE=$(convert_contents "${MOD_FILE}" kebab)
+  MOD_FILE=$(convert_contents "${MOD_FILE}" pascal)
+  MOD_FILE=$(convert_contents "${MOD_FILE}" snake)
 
-      TPL_CONTENTS=$(convert_contents "${TPL_CONTENTS}" camel)
-      TPL_CONTENTS=$(convert_contents "${TPL_CONTENTS}" constant)
-      TPL_CONTENTS=$(convert_contents "${TPL_CONTENTS}" kebab)
-      TPL_CONTENTS=$(convert_contents "${TPL_CONTENTS}" pascal)
-      TPL_CONTENTS=$(convert_contents "${TPL_CONTENTS}" snake)
+  MOD_FILE="${MOD_FILE//.template/}"
+  color "${BLUE}Make file ${YELLOW}${MOD_FILE}"
 
-      echo "${TPL_CONTENTS}" >> $MOD_FILE
-    fi
-  done
-}
+  TPL_CONTENTS=$(<$TPL_FILE)
 
-make_file camel
-make_file constant
-make_file kebab
-make_file pascal
-make_file snake
+  TPL_CONTENTS=$(convert_contents "${TPL_CONTENTS}" camel)
+  TPL_CONTENTS=$(convert_contents "${TPL_CONTENTS}" constant)
+  TPL_CONTENTS=$(convert_contents "${TPL_CONTENTS}" kebab)
+  TPL_CONTENTS=$(convert_contents "${TPL_CONTENTS}" pascal)
+  TPL_CONTENTS=$(convert_contents "${TPL_CONTENTS}" snake)
+
+  echo "${TPL_CONTENTS}" >> "${MOD_DIR}/${MOD_FILE}"
+done
 
 color
 color "${BLUE}Open folder"

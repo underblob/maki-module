@@ -1,6 +1,6 @@
 {
   "name": "maki-module",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Make modules from templates",
   "main": "index.js",
   "bin": "cli.js",

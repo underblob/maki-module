@@ -1,8 +1,8 @@
 # maki-module
 
-⚠️ This module was written on and for Mac OS X. If you would like to contribute a comprehensive update for Windows, please welcome!
+> Make flexible and consistent folder-based modular templates to harden your project's pattern.
 
-> Modular templates to harden project boilerplate.
+⚠️ This module was written on and for Mac OS X. If you would like to contribute a comprehensive update for Windows or other platform, please welcome!
 
 ## Usage
 
@@ -22,6 +22,12 @@ npx maki-module help
 
 ## Requirements
 
-* Node >= 8.5
-* NPM >= 5.3
+- Mac OS
+- Node >= 8.5
+- NPM >= 5.3
 
+## Links
+
+- [Github](https://github.com/underblob/maki-module)
+- [NPM package](https://www.npmjs.com/package/maki-module)
+- [Report a bug](https://github.com/underblob/maki-module/issues)

@@ -53,15 +53,15 @@ for TPL_FILE in $TPL_DIR/* ; do
   MOD_FILE="${MOD_FILE//.template/}"
   color "${BLUE}Make file ${YELLOW}${MOD_FILE}"
 
-  TPL_CONTENTS=$(<$TPL_FILE)
+  MOD_CONTENTS=$(<$TPL_FILE)
 
-  TPL_CONTENTS=$(convert_contents "${TPL_CONTENTS}" camel)
-  TPL_CONTENTS=$(convert_contents "${TPL_CONTENTS}" constant)
-  TPL_CONTENTS=$(convert_contents "${TPL_CONTENTS}" kebab)
-  TPL_CONTENTS=$(convert_contents "${TPL_CONTENTS}" pascal)
-  TPL_CONTENTS=$(convert_contents "${TPL_CONTENTS}" snake)
+  MOD_CONTENTS=$(convert_contents "${MOD_CONTENTS}" camel)
+  MOD_CONTENTS=$(convert_contents "${MOD_CONTENTS}" constant)
+  MOD_CONTENTS=$(convert_contents "${MOD_CONTENTS}" kebab)
+  MOD_CONTENTS=$(convert_contents "${MOD_CONTENTS}" pascal)
+  MOD_CONTENTS=$(convert_contents "${MOD_CONTENTS}" snake)
 
-  echo "${TPL_CONTENTS}" >> "${MOD_DIR}/${MOD_FILE}"
+  echo "${MOD_CONTENTS}" >> "${MOD_DIR}/${MOD_FILE}"
 done
 
 color

@@ -1,7 +1,7 @@
 {
   "name": "maki-module",
-  "version": "1.0.0",
-  "description": "Make flexible and consistent folder-based modular templates to harden your project's pattern.",
+  "version": "1.0.1",
+  "description": "Make modules from templates",
   "main": "index.js",
   "bin": "cli.js",
   "repository": {

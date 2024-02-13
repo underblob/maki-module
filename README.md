@@ -2,8 +2,6 @@
 
 > Make flexible and consistent folder-based modular templates to harden your project's pattern.
 
-⚠️ This module was written on and for Mac OS X. If you would like to contribute a comprehensive update for Windows or other platform, please welcome!
-
 ## Usage
 
 In your project root, install a `templates` folder with an example inside:
@@ -20,9 +18,27 @@ To see all available commands:
 npx maki-module help
 ```
 
+## Windows
+
+To use with Windows:
+
+1. Open **GitBash** CLI
+1. Configure `npm` to use **GitBash** as the default executable for scripts using one of the following commands:
+    ```
+    npm config set script-shell "C:\\Program Files (x86)\\git\\bin\\bash.exe"
+    # For x64:
+    npm config set script-shell "C:\\Program Files\\git\\bin\\bash.exe"
+    ```
+1. Execute the `npx` commands as noted in the instructions above
+
+To revert the config:
+
+```
+npm config delete script-shell
+```
+
 ## Requirements
 
-- Mac OS
 - Node >= 8.5
 - NPM >= 5.3
 

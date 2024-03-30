@@ -11,17 +11,13 @@ color "${BLUE}MAKE MODULE"
 color
 
 for ARG in "$@" ; do
-  [[ "$ARG" == "--children="* ]] && export ARG_CHILDREN=$ARG
-  [[ "$ARG" == "--dest="* ]] && export ARG_DEST=$ARG
-  [[ "$ARG" == "--parents="* ]] && export ARG_PARENTS=$ARG
-  [[ "$ARG" == "--self="* ]] && export ARG_SELF=$ARG
-  [[ "$ARG" == "--template="* ]] && export ARG_TEMPLATE=$ARG
+  [[ "$ARG" == "--children="* ]] && export CHILDREN="${ARG:11}"
+  [[ "$ARG" == "--dest="* ]] && export DEST="${ARG:7}"
+  [[ "$ARG" == "--flatten="* ]] && export FLATTEN="${ARG:10}"
+  [[ "$ARG" == "--parents="* ]] && export PARENTS="${ARG:10}"
+  [[ "$ARG" == "--self="* ]] && export SELF="${ARG:7}"
+  [[ "$ARG" == "--template="* ]] && export TEMPLATE="${ARG:11}"
 done
-
-# 11 chars:              --template=
-TEMPLATE="${ARG_TEMPLATE:11}"
-# 7 chars:       --dest=
-DEST="${ARG_DEST:7}"
 
 # Template validation
 TPL_DIR="${CWD_DIR}/templates/${TEMPLATE}"
@@ -43,12 +39,7 @@ err_abort $?
 color
 
 BASENAME=$(basename $MOD_DIR)
-# --self=SELF_NAME
-SELF=$([ "${ARG_SELF:7}" != "" ] && echo "${ARG_SELF:7}" || echo $BASENAME)
-# --children=CHILD_NAME_1,CHILD_NAME_2, ...
-CHILDREN="${ARG_CHILDREN:11}"
-# --parents=PARENT_NAME_1,PARENT_NAME_2, ...
-PARENTS="${ARG_PARENTS:10}"
+SELF=$([ "${SELF}" != "" ] && echo "${SELF}" || echo $BASENAME)
 
 function convert {
   echo $(node ./cli/make/convert_case.js $1 $2)
@@ -72,7 +63,6 @@ function convert_contents {
   if [ "${CHILDREN}" != "" ] ; then
     IFS=',' ; ARR_CHILDREN=($CHILDREN)
     for i in "${!ARR_CHILDREN[@]}" ; do
-      # color "${YELLOW}${i} i+1: ${i+1} $(($i + 1))"
       TOKEN="__$(convert $CASE "child-name-$((i + 1))")__"
       REPLACEMENT=$(convert $CASE "${ARR_CHILDREN[i]}")
       CONTENTS="${CONTENTS//$TOKEN/$REPLACEMENT}"
@@ -123,9 +113,14 @@ for TPL_FILE in $TPL_DIR/* ; do
   echo "${MOD_CONTENTS}" >> "${MOD_DIR}/${MOD_FILE}"
 done
 
-color
-color "${BLUE}Open folder"
-open $MOD_DIR
+if [ "${FLATTEN}" == "true" ] ; then
+  color
+  color "${BLUE}Flattening the module folder at ${YELLOW}${MOD_DIR}"
+  FLATTEN_DIR=$(dirname "${MOD_DIR}")
+  cp -r "${MOD_DIR}/"* "${FLATTEN_DIR}"
+  rm -rf "${MOD_DIR}"
+  color "${BLUE}Moved files to the parent folder ${YELLOW}${FLATTEN_DIR}"
+fi
 
 color
 color "${GREEN}Success!"

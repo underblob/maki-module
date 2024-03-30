@@ -1,12 +1,16 @@
 {
   "name": "maki-module",
-  "version": "1.1.1",
+  "version": "2.0.0-alpha.0",
   "description": "Make flexible and consistent folder-based modular templates to harden your project's pattern.",
   "main": "index.js",
   "bin": "cli.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/underblob/maki-module.git"
+  },
+  "scripts": {
+    "test": "npm run test:clean && bash ./cli/make.test.sh",
+    "test:clean": "rm -rf ./.test"
   },
   "keywords": [
     "cli",

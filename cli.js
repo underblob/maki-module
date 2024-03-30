@@ -8,14 +8,14 @@ process.chdir(__dirname);
 
 switch(command) {
   case 'install': {
-    execSync(`./cli/install.sh ${cwd} ${args.join(' ')}`, { stdio: 'inherit' });
+    execSync(`bash ./cli/install.sh ${cwd} ${args.join(' ')}`, { stdio: 'inherit' });
     break;
   }
   case 'make': {
-    execSync(`./cli/make.sh ${cwd} ${args.join(' ')}`, { stdio: 'inherit' });
+    execSync(`bash ./cli/make.sh ${cwd} ${args.join(' ')}`, { stdio: 'inherit' });
     break;
   }
   default: {
-    execSync('./cli/help.sh', { stdio: 'inherit' });
+    execSync('bash ./cli/help.sh', { stdio: 'inherit' });
   }
 }

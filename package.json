@@ -8,6 +8,10 @@
     "type": "git",
     "url": "git+https://github.com/underblob/maki-module.git"
   },
+  "scripts": {
+    "test": "npm run test:clean && bash ./cli/make.test.sh",
+    "test:clean": "rm -rf ./.test"
+  },
   "keywords": [
     "cli",
     "create",

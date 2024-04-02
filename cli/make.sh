@@ -3,8 +3,6 @@
 source ./helpers/color.sh
 source ./helpers/err.sh
 
-color_init
-
 CWD_DIR=$1
 
 color "${BLUE}MAKE MODULE"

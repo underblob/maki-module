@@ -4,7 +4,7 @@
 
 # Templates
 
-The `maki-modules` tool will look for module templates in the `templates` folder. For example:
+The `maki-module` tool will look for module templates in the `templates` folder. For example:
 
 ```shell
 npx maki-module make --template=example-react --dest=./src/components/NewModule
